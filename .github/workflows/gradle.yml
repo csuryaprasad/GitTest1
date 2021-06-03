@@ -45,7 +45,7 @@ jobs:
 All matched result files must be of same format
 
     path: 
-    # Format of test results. Supported options:
+    GitHub Actions / .github/workflows/gradle.yml
   - dart-json
   - dotnet-trx
   - flutter-json
