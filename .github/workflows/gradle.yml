@@ -31,49 +31,11 @@ jobs:
     - name: Run Tests
       run: ./gradlew test --info # Run our tests using Gradle
 
-    - name: Test Reporter
-  # You may pin to the exact commit or the version.
-  # uses: dorny/test-reporter@6969ae6af5efb4ddb55b1e5aa1e1198de99e191c
-  uses: dorny/test-reporter@v1.4.3
-  with:
-    # Name or regex of artifact containing test results
-    artifact: # optional
-    # Name of the check run
-    name: 
-    # Coma separated list of paths to test results
-     Supports wildcards via [fast-glob](https://github.com/mrmlnc/fast-glob)
-All matched result files must be of same format
-
-    path: 
-    GitHub Actions
-/ .github/workflows/gradle.yml
-  - dart-json
-  - dotnet-trx
-  - flutter-json
-  - java-junit
-  - jest-junit
-  - mocha-json
-
-    reporter: 
-    # Limits which test suites are listed. Supported options:
-  - all
-  - only-failed
-
-    list-suites: # default is all
-    # Limits which test cases are listed. Supported options:
-  - all
-  - only-failed
-  - none
-
-    list-tests: # default is all
-    # Limits number of created annotations with error message and stack trace captured during test execution.
-Must be less or equal to 50.
-
-    max-annotations: # default is 10
-    # Set this action as failed if test report contain any failed test
-    fail-on-error: # default is true
-    # Relative path under $GITHUB_WORKSPACE where the repository was checked out
-    working-directory: # optional
-    # GitHub Access Token
-    token: # optional, default is ${{ github.token }}
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()    # run this step even if previous step failed
+      with:
+          name: JEST Tests            # Name of the check run which will be created
+          path: reports/Test-*.xml    # Path to test results
+          reporter: jest-juni
   
