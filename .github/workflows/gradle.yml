@@ -45,7 +45,6 @@ jobs:
 All matched result files must be of same format
 
     path: 
-    GitHub Actions / .github/workflows/gradle.yml
   - dart-json
   - dotnet-trx
   - flutter-json
