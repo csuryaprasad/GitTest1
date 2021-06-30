@@ -39,16 +39,16 @@ jobs:
         server_address: smtp.gmail.com
         server_port: 465
       # user credentials
-        username: 'vig92007@gmail.com'
-        password: 'Sree#2007'
+        username: vig92007@gmail.com
+        password: Sree#2007
       # email subject
         subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
       # email body as text
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
       # comma-separated string, send email to
-        to: 'vig92007@gmail.com'
+        to: vig92007@gmail.com
       # from email name
-        from: 'Surya'
+        from: Surya
       
     - name: Test Report
       uses: dorny/test-reporter@v1
