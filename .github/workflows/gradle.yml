@@ -39,8 +39,8 @@ jobs:
         server_address: smtp.gmail.com
         server_port: 465
       # user credentials
-        username: csuryaprasad@gmail.com
-        password: Sree#1973
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
       # email subject
         subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
       # email body as text
@@ -48,7 +48,7 @@ jobs:
       # comma-separated string, send email to
         to: vig92007@gmail.com
       # from email name
-        from: csuryaprasad@gmail.com
+        from: Surya
       
     - name: Test Report
       uses: dorny/test-reporter@v1
