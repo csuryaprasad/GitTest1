@@ -26,7 +26,8 @@ public class SeleniumDemo
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.navigate().to("https://the-internet.herokuapp.com/login");
+        //driver.navigate().to("https://the-internet.herokuapp.com/login");
+        driver.navigate().to("https://impsqa.teachforamerica.org/ada/tgl");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
     }
@@ -35,9 +36,15 @@ public class SeleniumDemo
     public void userLogin()
     {
         WebElement usernameTxt = driver.findElement(By.id("username"));
-        usernameTxt.sendKeys("tomsmith");
-        WebElement passwordTxt = driver.findElement(By.id("password"));
-        passwordTxt.sendKeys("SuperSecretPassword!");
+        usernameTxt.sendKeys("ssharma");
+         WebElement passwordTxt = driver.findElement(By.id("password"));
+        passwordTxt.sendKeys("Rockstar1");
+        
+        //WebElement usernameTxt = driver.findElement(By.id("username"));
+       // usernameTxt.sendKeys("tomsmith");
+       // WebElement passwordTxt = driver.findElement(By.id("password"));
+      //  passwordTxt.sendKeys("SuperSecretPassword!");
+        
         WebElement submitBtn = driver.findElement(By.className("radius"));
         submitBtn.click();
         System.out.println("Current URL is-" + driver.getCurrentUrl());
