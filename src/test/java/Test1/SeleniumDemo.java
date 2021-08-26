@@ -1,6 +1,6 @@
 package Test1;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,8 +28,7 @@ public class SeleniumDemo
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        //driver.navigate().to("https://the-internet.herokuapp.com/login");
-        driver.navigate().to("https://impsqa.teachforamerica.org/ada/tgl");
+        driver.navigate().to("https://the-internet.herokuapp.com/login");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
     }
@@ -35,21 +36,14 @@ public class SeleniumDemo
     @Test
     public void userLogin()
     {
-        System.out.println("Current URL is-" + driver.getCurrentUrl());
         WebElement usernameTxt = driver.findElement(By.id("username"));
-        usernameTxt.sendKeys("ssharma");
-         WebElement passwordTxt = driver.findElement(By.id("password"));
-        passwordTxt.sendKeys("Rockstar1");
-        
-        //WebElement usernameTxt = driver.findElement(By.id("username"));
-       // usernameTxt.sendKeys("tomsmith");
-       // WebElement passwordTxt = driver.findElement(By.id("password"));
-      //  passwordTxt.sendKeys("SuperSecretPassword!");
-        //
-        //WebElement submitBtn = driver.findElement(By.className("radius"));
-        //submitBtn.click();
-        //System.out.println("Current URL is-" + driver.getCurrentUrl());
-       // Assert.assertTrue(driver.getCurrentUrl().contains("secure"));
+        usernameTxt.sendKeys("tomsmith");
+        WebElement passwordTxt = driver.findElement(By.id("password"));
+        passwordTxt.sendKeys("SuperSecretPassword!");
+        WebElement submitBtn = driver.findElement(By.className("radius"));
+        submitBtn.click();
+        System.out.println("Current URL is:" + driver.getCurrentUrl());
+        Assert.assertTrue(driver.getCurrentUrl().contains("secure"));
     }
 
     @AfterClass
