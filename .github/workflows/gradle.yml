@@ -57,6 +57,6 @@ jobs:
         # comma-separated string, send email to
         to: vig92007@gmail.com
         # from email name
-        from: Surya      
+        from: Surya
   
   
