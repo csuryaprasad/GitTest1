@@ -28,8 +28,7 @@ public class SeleniumDemo
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get("https://impsqa.teachforamerica.org/ada/tgl");
-        //driver.get("https://qamerlin.teachforamerica.org/applicant-evaluation/");
+        driver.navigate().to("https://the-internet.herokuapp.com/login");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
     }
