@@ -59,18 +59,6 @@ jobs:
         # Optional whether this connection use TLS (default is true if server_port is 465)
         secure: true
         # Optional plain body:
-        body: Build job of ${{github.repository}} completed successfully!
-        # Optional HTML body read from file:
-        html_body: file://README.html
-        # Optional carbon copy recipients:
-        cc: vig92007@gmail.com
-        # Optional unsigned/invalid certificates allowance:
-        ignore_cert: true
-        # Optional converting Markdown to HTML (set content_type to text/html too):
-        convert_markdown: true
-        # Optional attachments:
-        attachments: attachments.zip,git.diff,./dist/static/*.js
-        # Optional priority: 'high', 'normal' (default) or 'low'
-        priority: low
+        body: Build job of ${{github.repository}} completed successfully!       
   
   
