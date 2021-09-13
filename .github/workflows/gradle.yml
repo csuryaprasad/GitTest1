@@ -55,7 +55,7 @@ jobs:
         # Required recipients' addresses:
         to: vig92007@gmail.com
         # Required sender full name (address can be skipped):
-        from: Surya # <vig92007@gmail.com>
+        from: Surya # <csuryaprasad@gmail.com>
         # Optional whether this connection use TLS (default is true if server_port is 465)
         secure: true
         # Optional plain body:
