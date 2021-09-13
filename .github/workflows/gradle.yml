@@ -40,25 +40,23 @@ jobs:
           reporter: java-junit
           
     - name: Send mail
-      uses: dawidd6/action-send-mail@v3
+      if: always()
+        uses:actions/checkout@v2
       with:
         # Required mail server address:
         server_address: smtp.gmail.com
         # Required mail server port:
         server_port: 465
-        # Optional (recommended): mail server username:
-        username: csuryaprasad@gmail.com
-        # Optional (recommended) mail server password:
-        password: Sree#1973
-        # Required mail subject:
-        subject: Github Actions job result
-        # Required recipients' addresses:
+        # user credentials
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        # email subject
+        subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+        # email body as text
+        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+        # comma-separated string, send email to
         to: vig92007@gmail.com
-        # Required sender full name (address can be skipped):
-        from: Surya # <csuryaprasad@gmail.com>
-        # Optional whether this connection use TLS (default is true if server_port is 465)
-        secure: true
-        # Optional plain body:
-        body: Build job of ${{github.repository}} completed successfully!       
+        # from email name
+        from: Surya      
   
   
