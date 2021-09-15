@@ -56,10 +56,8 @@ jobs:
         subject: ${{github.job}} job of ${{github.repository}} has ${{job.status}}
         # email body as text
         body: ${{github.job}} job in worflow ${{github.workflow}} of ${{github.repository}} has ${{job.status}}
-        # Optional HTML body read from file:
-        html_body: test-output://emailable-report.html
         # comma-separated string, send email to
-        to: vig92007@gmail.com
+        to: vig92007@gmail.com,csuryaprasad@gmail.com
         # from email name
         from: Surya
         # Optional unsigned/invalid certificates allowance:
@@ -67,7 +65,7 @@ jobs:
         # Optional converting Markdown to HTML (set content_type to text/html too):
         convert_markdown: true
         # Optional attachments:
-        attachments: attachments.zip,git.diff,./dist/static/*.js
+        attachments: test-output://emailable-report.html
         # Optional priority: 'high', 'normal' (default) or 'low'
         priority: low
   
