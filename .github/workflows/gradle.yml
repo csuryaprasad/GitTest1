@@ -40,33 +40,4 @@ jobs:
           name: Run Tests            # Name of the check run which will be created1
           path: build/test-results/test/TEST-*.xml    # Path to test results
           reporter: java-junit
-          
-    - name: Send email
-      uses: dawidd6/action-send-mail@v3
-      if: always()
-      with:
-        # Required mail server address:
-        server_address: smtp.gmail.com
-        # Required mail server port:
-        server_port: 465
-        # user credentials
-        username: ${{secrets.EMAIL_USERNAME}}
-        password: ${{secrets.EMAIL_PASSWORD}}
-        # email subject
-        subject: ${{github.job}} job of ${{github.repository}} has ${{job.status}}
-        # email body as text
-        body: ${{github.job}} job in worflow ${{github.workflow}} of ${{github.repository}} has ${{job.status}}
-        # comma-separated string, send email to
-        to: vig92007@gmail.com,csuryaprasad@gmail.com
-        # from email name
-        from: Surya
-        # Optional unsigned/invalid certificates allowance:
-        ignore_cert: true
-        # Optional converting Markdown to HTML (set content_type to text/html too):
-        convert_markdown: true
-        # Optional attachments:
-        attachments: test-output://emailable-report.html
-        # Optional priority: 'high', 'normal' (default) or 'low'
-        priority: low
-  
   
